@@ -1,0 +1,1190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#090b10">
+  <title>Warzone Arena 2026 | Daksh eSport Tournament</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,700;0,800;1,800&family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --ink: #090b10;
+      --panel: #11151e;
+      --panel-2: #171c27;
+      --line: rgba(255, 255, 255, .10);
+      --muted: #a4abba;
+      --white: #f7f8fb;
+      --orange: #ff5b22;
+      --yellow: #ffc145;
+      --cyan: #58d4da;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--white);
+      background:
+        radial-gradient(circle at 82% 8%, rgba(255, 91, 34, .10), transparent 24rem),
+        linear-gradient(135deg, #090b10 0%, #0c1017 60%, #090b10 100%);
+      font-family: "Inter", sans-serif;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: .14;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, .05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, .05) 1px, transparent 1px);
+      background-size: 48px 48px;
+      mask-image: linear-gradient(to bottom, black, transparent 75%);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .wrap {
+      width: min(1180px, calc(100% - 40px));
+      margin: auto;
+    }
+
+    img {
+      max-width: 100%;
+    }
+
+    .topbar {
+      height: 72px;
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid var(--line);
+      position: relative;
+      z-index: 20;
+    }
+
+    .topbar .wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-mark {
+      width: 64px;
+      height: 64px;
+      display: grid;
+      place-items: center;
+      flex: 0 0 auto;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      background: white;
+      overflow: hidden;
+    }
+
+    .brand-mark img {
+      width: 62px;
+      height: 62px;
+      object-fit: contain;
+      transform: scale(1.12);
+    }
+
+    .brand-copy strong {
+      display: block;
+      font: 800 18px "Barlow Condensed";
+      letter-spacing: .08em;
+    }
+
+    .brand-copy span {
+      color: var(--muted);
+      font-size: 10px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+
+    .brand-logos {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-left: 4px;
+    }
+
+    .brand-logos img {
+      height: 100px;
+      width: 100px;
+      object-fit: contain;
+      border-radius: 50%;
+      background: white;
+    }
+
+    .brand-logos img.abacus-logo {
+      width: 78px;
+      height: 44px;
+      object-fit: contain;
+      border-radius: 4px;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+    }
+
+    .nav {
+      display: flex;
+      gap: 28px;
+      color: #bdc3cf;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .nav a:hover {
+      color: var(--white);
+    }
+
+    .hero {
+      min-height: 550px;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .hero::after {
+      content: "WARZONE";
+      position: absolute;
+      right: -20px;
+      bottom: -48px;
+      color: rgba(255, 255, 255, .025);
+      font: italic 800 clamp(120px, 19vw, 280px)/1 "Barlow Condensed";
+      letter-spacing: -.05em;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr .85fr;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--yellow);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 38px;
+      height: 3px;
+      background: var(--orange);
+    }
+
+    h1 {
+      margin: 18px 0 12px;
+      max-width: 760px;
+      font: italic 800 clamp(72px, 9vw, 130px)/.82 "Barlow Condensed";
+      letter-spacing: -.035em;
+      text-transform: uppercase;
+    }
+
+    h1 span {
+      display: block;
+      color: var(--orange);
+    }
+
+    .hero-sub {
+      max-width: 580px;
+      color: #bec4d0;
+      line-height: 1.8;
+      font-size: 15px;
+    }
+
+    .game-tags {
+      display: flex;
+      gap: 10px;
+      margin-top: 28px;
+    }
+
+    .tag {
+      padding: 10px 14px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, .025);
+      font: 800 13px "Barlow Condensed";
+      letter-spacing: .12em;
+    }
+
+    .tag:first-child {
+      border-color: rgba(255, 193, 69, .55);
+      color: var(--yellow);
+    }
+
+    .tag:last-child {
+      border-color: rgba(88, 212, 218, .55);
+      color: var(--cyan);
+    }
+
+    .event-card {
+      justify-self: end;
+      width: min(330px, 100%);
+      padding: 30px;
+      border: 1px solid var(--line);
+      background: rgba(17, 21, 30, .88);
+      box-shadow: 20px 20px 0 rgba(255, 91, 34, .07);
+      backdrop-filter: blur(12px);
+    }
+
+    .event-card small {
+      color: var(--muted);
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: .16em;
+    }
+
+    .date {
+      display: block;
+      margin: 8px 0 22px;
+      font: 800 48px/.9 "Barlow Condensed";
+    }
+
+    .date strong {
+      color: var(--orange);
+    }
+
+    .detail {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      padding: 14px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .detail-icon {
+      color: var(--orange);
+      width: 18px;
+      text-align: center;
+    }
+
+    .detail b {
+      display: block;
+      font-size: 13px;
+    }
+
+    .detail span {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    section {
+      padding: 88px 0;
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      margin-bottom: 34px;
+    }
+
+    .kicker {
+      color: var(--orange);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      margin: 8px 0 0;
+      font: italic 800 52px/.95 "Barlow Condensed";
+      text-transform: uppercase;
+    }
+
+    .section-index {
+      color: rgba(255, 255, 255, .10);
+      font: italic 800 70px/.8 "Barlow Condensed";
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .card {
+      min-height: 220px;
+      padding: 26px;
+      border: 1px solid var(--line);
+      background: linear-gradient(145deg, rgba(23, 28, 39, .92), rgba(13, 16, 23, .92));
+    }
+
+    .card-number {
+      color: var(--orange);
+      font: 800 34px "Barlow Condensed";
+    }
+
+    .card h3 {
+      margin: 14px 0 16px;
+      font: 800 22px "Barlow Condensed";
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+
+    .card ul {
+      margin: 0;
+      padding-left: 17px;
+      color: #bbc1cd;
+      font-size: 13px;
+      line-height: 1.75;
+    }
+
+    .rules-layout {
+      display: grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 16px;
+    }
+
+    .rules-panel {
+      border: 1px solid var(--line);
+      background: var(--panel);
+    }
+
+    .panel-title {
+      padding: 18px 22px;
+      border-bottom: 1px solid var(--line);
+      font: 800 20px "Barlow Condensed";
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+
+    .rule-list {
+      margin: 0;
+      padding: 8px 22px 18px;
+      list-style: none;
+    }
+
+    .rule-list li {
+      display: grid;
+      grid-template-columns: 26px 1fr;
+      gap: 10px;
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, .06);
+      color: #bdc3cf;
+      font-size: 13px;
+      line-height: 1.55;
+    }
+
+    .rule-list li:last-child {
+      border: 0;
+    }
+
+    .rule-list li span {
+      color: var(--orange);
+      font: 800 15px "Barlow Condensed";
+    }
+
+    .dq {
+      border: 1px solid rgba(255, 91, 34, .28);
+      background: linear-gradient(145deg, rgba(255, 91, 34, .09), rgba(17, 21, 30, .95));
+    }
+
+    .dq .panel-title {
+      color: #ff8060;
+    }
+
+    .dq .rule-list li span {
+      color: #ff8060;
+    }
+
+    .formats {
+      background: rgba(255, 255, 255, .018);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .format-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .format-card {
+      overflow: hidden;
+      border: 1px solid var(--line);
+      background: var(--panel);
+    }
+
+    .format-banner {
+      height: 90px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 22px 26px;
+      position: relative;
+    }
+
+    .format-card.bgmi .format-banner {
+      background: linear-gradient(100deg, rgba(255, 193, 69, .18), transparent);
+    }
+
+    .format-card.ff .format-banner {
+      background: linear-gradient(100deg, rgba(88, 212, 218, .15), transparent);
+    }
+
+    .format-banner h3 {
+      margin: 0;
+      font: italic 800 38px "Barlow Condensed";
+    }
+
+    .format-card.bgmi .format-banner h3 {
+      color: var(--yellow);
+    }
+
+    .format-card.ff .format-banner h3 {
+      color: var(--cyan);
+    }
+
+    .format-banner span {
+      color: rgba(255, 255, 255, .28);
+      font: italic 800 52px "Barlow Condensed";
+    }
+
+    .specs {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .spec {
+      padding: 16px 12px;
+      text-align: center;
+      border-right: 1px solid var(--line);
+    }
+
+    .spec:last-child {
+      border: 0;
+    }
+
+    .spec small {
+      display: block;
+      color: var(--muted);
+      font-size: 9px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .spec b {
+      display: block;
+      margin-top: 5px;
+      font-size: 12px;
+    }
+
+    .bracket {
+      padding: 12px 26px 22px;
+    }
+
+    .match {
+      display: grid;
+      grid-template-columns: 55px 1fr 150px;
+      align-items: center;
+      min-height: 58px;
+      border-bottom: 1px solid rgba(255, 255, 255, .07);
+    }
+
+    .match:last-child {
+      border: 0;
+    }
+
+    .match-no {
+      color: var(--orange);
+      font: 800 21px "Barlow Condensed";
+    }
+
+    .match-name {
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .match-teams {
+      color: var(--muted);
+      font-size: 11px;
+      text-align: right;
+    }
+
+    .scoring-layout {
+      display: grid;
+      grid-template-columns: 1fr 350px;
+      gap: 16px;
+    }
+
+    .score-table {
+      border: 1px solid var(--line);
+      background: var(--panel);
+    }
+
+    .score-row {
+      display: grid;
+      grid-template-columns: 1fr 90px;
+      align-items: center;
+      min-height: 52px;
+      padding: 0 22px;
+      border-bottom: 1px solid rgba(255, 255, 255, .07);
+    }
+
+    .score-row:last-child {
+      border: 0;
+    }
+
+    .score-row span {
+      color: #bdc3cf;
+      font-size: 13px;
+    }
+
+    .score-row strong {
+      justify-self: end;
+      color: var(--yellow);
+      font: 800 24px "Barlow Condensed";
+    }
+
+    .score-row.finale {
+      background: rgba(255, 193, 69, .06);
+    }
+
+    .score-formula {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 34px;
+      border: 1px solid rgba(255, 91, 34, .28);
+      background: linear-gradient(145deg, rgba(255, 91, 34, .11), var(--panel));
+    }
+
+    .score-formula small {
+      color: var(--muted);
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+
+    .formula {
+      margin: 16px 0 10px;
+      font: italic 800 34px "Barlow Condensed";
+    }
+
+    .formula b {
+      color: var(--orange);
+    }
+
+    .score-formula p {
+      margin: 0;
+      color: #bbc1cd;
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    footer {
+      padding: 28px 0;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+    }
+
+    footer .wrap {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    footer strong {
+      color: var(--white);
+    }
+
+    .contact {
+      display: flex;
+      gap: 18px;
+      font-size: 12px;
+    }
+
+    @media (max-width: 1100px) {
+      .nav {
+        gap: 18px;
+      }
+
+      .hero-grid {
+        grid-template-columns: 1.05fr .95fr;
+      }
+
+      .hero-sub {
+        max-width: 520px;
+      }
+    }
+
+    @media (max-width: 860px) {
+      .nav {
+        display: none;
+      }
+
+      .hero-grid,
+      .rules-layout,
+      .format-grid,
+      .scoring-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding: 70px 0;
+      }
+
+      .event-card {
+        justify-self: start;
+        margin-top: 38px;
+      }
+
+      .info-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .card {
+        min-height: auto;
+      }
+
+      .section-index {
+        display: none;
+      }
+
+      .topbar {
+        height: 76px;
+      }
+
+      .brand-logos img.abacus-logo {
+        width: 68px;
+        height: 40px;
+      }
+
+      h1 {
+        font-size: clamp(64px, 16vw, 96px);
+      }
+
+      h2 {
+        font-size: clamp(40px, 10vw, 52px);
+      }
+
+      .format-grid {
+        gap: 20px;
+      }
+
+      footer .wrap {
+        align-items: flex-start;
+        gap: 16px;
+      }
+
+      .contact {
+        flex-wrap: wrap;
+        justify-content: flex-end;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .wrap {
+        width: min(100% - 28px, 1180px);
+      }
+
+      .topbar {
+        height: 64px;
+      }
+
+      .topbar .wrap {
+        gap: 8px;
+      }
+
+      .brand {
+        gap: 8px;
+        min-width: 0;
+      }
+
+      .brand-copy {
+        min-width: 0;
+      }
+
+      .brand-copy span {
+        letter-spacing: .11em;
+      }
+
+      .header-actions {
+        gap: 0;
+      }
+
+      .brand-logos {
+        margin-left: 0;
+      }
+
+      .brand-copy strong {
+        font-size: 15px;
+      }
+
+      .brand-mark {
+        width: 54px;
+        height: 54px;
+      }
+
+      .brand-mark img {
+        width: 52px;
+        height: 52px;
+      }
+
+      .brand-logos img.abacus-logo {
+        width: 58px;
+        height: 36px;
+      }
+
+      .hero {
+        min-height: auto;
+        padding: 58px 0 64px;
+      }
+
+      .hero-grid {
+        align-items: start;
+      }
+
+      .eyebrow {
+        font-size: 10px;
+        gap: 8px;
+      }
+
+      .eyebrow::before {
+        width: 24px;
+      }
+
+      h1 {
+        font-size: 72px;
+      }
+
+      .hero-sub {
+        line-height: 1.65;
+      }
+
+      .game-tags {
+        flex-wrap: wrap;
+      }
+
+      .event-card {
+        width: 100%;
+        box-shadow: 10px 10px 0 rgba(255, 91, 34, .07);
+      }
+
+      section {
+        padding: 64px 0;
+      }
+
+      h2 {
+        font-size: 43px;
+      }
+
+      .hero-sub {
+        font-size: 14px;
+      }
+
+      .event-card {
+        padding: 24px;
+      }
+
+      .date {
+        font-size: 42px;
+      }
+
+      .card {
+        padding: 22px;
+      }
+
+      .rules-layout {
+        gap: 12px;
+      }
+
+      .panel-title {
+        padding-inline: 18px;
+      }
+
+      .rule-list {
+        padding-inline: 18px;
+      }
+
+      .format-banner {
+        height: 78px;
+        padding-inline: 18px;
+      }
+
+      .format-banner h3 {
+        font-size: 34px;
+      }
+
+      .specs {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .spec:nth-child(2) {
+        border-right: 0;
+      }
+
+      .spec:nth-child(-n+2) {
+        border-bottom: 1px solid var(--line);
+      }
+
+      .match {
+        grid-template-columns: 42px 1fr 112px;
+      }
+
+      .bracket {
+        padding-inline: 16px;
+      }
+
+      .score-row {
+        padding-inline: 16px;
+      }
+
+      .contact {
+        display: none;
+      }
+
+      footer .wrap {
+        display: block;
+      }
+    }
+
+    @media (max-width: 380px) {
+      .wrap {
+        width: calc(100% - 20px);
+      }
+
+      .brand-copy strong {
+        font-size: 13px;
+      }
+
+      .brand-copy span {
+        font-size: 8px;
+      }
+
+      .brand-mark {
+        width: 46px;
+        height: 46px;
+      }
+
+      .brand-mark img {
+        width: 44px;
+        height: 44px;
+      }
+
+      .brand-logos img.abacus-logo {
+        width: 52px;
+      }
+
+      h1 {
+        font-size: 60px;
+      }
+
+      h2 {
+        font-size: 38px;
+      }
+
+      .section-head {
+        margin-bottom: 26px;
+      }
+
+      .match {
+        grid-template-columns: 36px 1fr 96px;
+      }
+
+      .match-teams {
+        font-size: 10px;
+      }
+
+      .formula {
+        font-size: 30px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="wrap">
+      <a class="brand" href="#top" aria-label="Warzone Arena home">
+        <div class="brand-mark"><img src="assets/daksh-logo.png" alt="Daksh"></div>
+        <div class="brand-copy">
+          <strong>WARZONE ARENA</strong>
+          <span>Daksh eSport 2026</span>
+        </div>
+      </a>
+      <div class="header-actions">
+        <nav class="nav" aria-label="Main navigation">
+          <a href="#rules">Rules</a>
+          <a href="#formats">Formats</a>
+          <a href="#scoring">Scoring</a>
+        </nav>
+        <div class="brand-logos" aria-label="Abacus and Daksh logos">
+          <img class="abacus-logo" src="assets/abacus-logo.jpeg" alt="Abacus">
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="wrap hero-grid">
+        <div>
+          <div class="eyebrow">Official tournament rulebook</div>
+          <h1 id="hero-title">Warzone <span>Arena</span></h1>
+          <p class="hero-sub">Competition format, player responsibilities, match procedures, scoring and disciplinary
+            rules for the Daksh eSport Tournament 2026.</p>
+          <div class="game-tags">
+            <span class="tag">BGMI</span>
+            <span class="tag">FREE FIRE</span>
+          </div>
+        </div>
+        <aside class="event-card" aria-label="Event details">
+          <small>EVENT DATE</small>
+          <time class="date" datetime="2026-11-28"><strong>28</strong> NOV 2026</time>
+          <div class="detail">
+            <div class="detail-icon">◷</div>
+            <div><b>10:00 AM onwards</b><span>Match reporting begins</span></div>
+          </div>
+          <div class="detail">
+            <div class="detail-icon">⌖</div>
+            <div><b>Library — Room 70</b><span>Official match venue</span></div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="rules">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <div class="kicker">Before entering the arena</div>
+            <h2>Tournament Rules</h2>
+          </div>
+          <div class="section-index">01</div>
+        </div>
+
+        <div class="info-grid">
+          <article class="card">
+            <div class="card-number">01</div>
+            <h3>Registration</h3>
+            <ul>
+
+              <li>Only the team leader will register for the tournament</li>
+              <li>Every registered player & There Teammates must carry their college ID card</li>
+              <li>The team leader must fill in all team and player details</li>
+              <li>Register before the deadline</li>
+              <li>Players cannot join multiple teams</li>
+              <li>Report before the scheduled match</li>
+            </ul>
+          </article>
+          <article class="card">
+            <div class="card-number">02</div>
+            <h3>Captain Duties</h3>
+            <ul>
+              <li>Relay the Room ID and Password to the squad</li>
+              <li>Verify that all four players are present</li>
+              <li>Report technical issues to the organizers immediately</li>
+            </ul>
+          </article>
+          <article class="card">
+            <div class="card-number">03</div>
+            <h3>Fair Play</h3>
+            <ul>
+              <li>Do not team up with opponents</li>
+              <li>Play with your registered squad</li>
+              <li>Report technical issues immediately</li>
+
+              <li>Organizer will be not responsible for any network faliure.</li>
+              <li>Organizer decisions are final</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="rules-layout" style="margin-top:16px">
+          <div class="rules-panel">
+            <div class="panel-title">Match-Day Protocol</div>
+            <ol class="rule-list">
+              <li><span>01</span>
+                <div>Report to the venue by the scheduled match reporting time.</div>
+              </li>
+              <li><span>02</span>
+                <div>Receive the custom-room Room ID and Password.</div>
+              </li>
+              <li><span>03</span>
+                <div>Enter the room using the approved, registered BGMI account.</div>
+              </li>
+              <li><span>04</span>
+                <div>Wait in the lobby while organizers verify the full squad.</div>
+              </li>
+              <li><span>05</span>
+                <div>Be ready when the match countdown begins.</div>
+              </li>
+              <li><span>06</span>
+                <div>The match starts at the organizer's announced time.</div>
+              </li>
+              <li><span>07</span>
+                <div>Late or replacement players cannot join after the match has started.</div>
+              </li>
+            </ol>
+          </div>
+          <div class="rules-panel dq">
+            <div class="panel-title">Disqualification</div>
+            <ol class="rule-list">
+              <li><span>✕</span>
+                <div>Using hacks or unauthorized software.</div>
+              </li>
+              <li><span>✕</span>
+                <div>Misbehaving with organizers or participants.</div>
+              </li>
+              <li><span>✕</span>
+                <div>Deliberately exploiting game bugs.</div>
+              </li>
+              <li><span>✕</span>
+                <div>Playing with unregistered players.</div>
+              </li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="formats" id="formats">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <div class="kicker">Choose your battleground</div>
+            <h2>Game Formats</h2>
+          </div>
+          <div class="section-index">02</div>
+        </div>
+
+        <div class="format-grid">
+          <article class="format-card bgmi">
+            <div class="format-banner">
+              <h3>BGMI</h3><span>01</span>
+            </div>
+            <div class="specs">
+              <div class="spec"><small>Map</small><b>Erangel</b></div>
+              <div class="spec"><small>Team</small><b>Squad · 4</b></div>
+              <div class="spec"><small>View</small><b>TPP</b></div>
+              <div class="spec"><small>Mode</small><b>Custom Room</b></div>
+            </div>
+            <div class="bracket">
+              <div class="match">
+                <div class="match-no">01</div>
+                <div class="match-name">Qualifier · Round 1</div>
+                <div class="match-teams">First half of total teams</div>
+              </div>
+              <div class="match">
+                <div class="match-no">02</div>
+                <div class="match-name">Qualifier · Round 2</div>
+                <div class="match-teams">Second half of total teams</div>
+              </div>
+              <div class="match">
+                <div class="match-no">03</div>
+                <div class="match-name">Grand Finale</div>
+                <div class="match-teams">Top 10 + Top 10</div>
+              </div>
+            </div>
+          </article>
+
+          <article class="format-card ff">
+            <div class="format-banner">
+              <h3>FREE FIRE</h3><span>02</span>
+            </div>
+            <div class="specs">
+              <div class="spec"><small>Map</small><b>Bermuda</b></div>
+              <div class="spec"><small>Team</small><b>Squad · 4</b></div>
+              <div class="spec"><small>View</small><b>TPP</b></div>
+              <div class="spec"><small>Mode</small><b>Custom Room</b></div>
+            </div>
+            <div class="bracket">
+              <div class="match">
+                <div class="match-no">01</div>
+                <div class="match-name">Qualifier · Round 1</div>
+                <div class="match-teams">First half of total teams</div>
+              </div>
+              <div class="match">
+                <div class="match-no">02</div>
+                <div class="match-name">Qualifier · Round 2</div>
+                <div class="match-teams">Second half of total teams</div>
+              </div>
+              <div class="match">
+                <div class="match-no">03</div>
+                <div class="match-name">Grand Finale</div>
+                <div class="match-teams">Top 6 + Top 6</div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="scoring">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <div class="kicker">Every placement matters</div>
+            <h2>Scoring System</h2>
+          </div>
+          <div class="section-index">03</div>
+        </div>
+        <div class="scoring-layout">
+          <div class="score-table">
+            <div class="score-row"><span>1st Place</span><strong>10</strong></div>
+            <div class="score-row"><span>2nd Place</span><strong>6</strong></div>
+            <div class="score-row"><span>3rd Place</span><strong>5</strong></div>
+            <div class="score-row"><span>4th Place</span><strong>4</strong></div>
+            <div class="score-row"><span>5th Place</span><strong>3</strong></div>
+            <div class="score-row"><span>6th Place</span><strong>2</strong></div>
+            <div class="score-row"><span>7th–8th Place</span><strong>1</strong></div>
+            <div class="score-row finale"><span>9th Place onwards</span><strong>0</strong></div>
+          </div>
+          <aside class="score-formula">
+            <small>Final calculation</small>
+            <div class="formula">Position <b>+</b> Eliminations</div>
+            <p><strong style="color:var(--white)">1 elimination = 1 point</strong><br>Only confirmed eliminations count
+              toward your team's final score.</p>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div><strong>WARZONE ARENA</strong> · Daksh eSport Tournament 2026</div>
+      <div class="contact"><span>Ayush: 7970717003</span><span>Sandeep: 9341478114</span><span>Raj: 7667321935</span>
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>
